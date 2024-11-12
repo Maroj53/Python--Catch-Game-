@@ -68,7 +68,7 @@ while MainLoop:
       
   #Debug
 
-  print("Zombie coordinates",Zombie1.ZombieRect.x,Zombie1.ZombieRect.y)  #- Debugging print of Zombie1's X and Y position
+  print("Zombie coordinates",Zombie1.ZombieRect2.x,Zombie1.ZombieRect2.y)  #- Debugging print of Zombie1's X and Y position
   print("Player coordinates",Player1.PlayerRect.x,Player1.PlayerRect.y)  #- Debugging print of Player1's X and Y position
   
   #- Drawing
