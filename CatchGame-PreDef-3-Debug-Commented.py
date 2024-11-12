@@ -7,7 +7,7 @@ pygame.init()                        #- initialize the module
 
 #- Activate the graphical window
 WindowWidth = 1200                        #- fixed width and height of the game window
-WindowHeight = 1000
+WindowHeight = 900
 Window = pygame.display.set_mode ([WindowWidth, WindowHeight])    #- activate the window
 pygame.display.set_caption ("Catch game")        #- set the window title
 
@@ -15,10 +15,10 @@ pygame.display.set_caption ("Catch game")        #- set the window title
 Clock = pygame.time.Clock()                #- initialize the timing module
 
 #- Initial variable setup
-Playerspawnlocationx = 10                    #- number of game ticks per second
-Playerspawnlocationy = 10                  #- number of game ticks per second
-Zombiespawnlocationx = 1000                    #- number of game ticks per second
-Zombiespawnlocationy = 1000                    #- number of game ticks per second
+Playerspawnlocationx = 1160                   #- number of game ticks per second
+Playerspawnlocationy = 860                  #- number of game ticks per second
+Zombiespawnlocationx = 10                   #- number of game ticks per second
+Zombiespawnlocationy = 10                   #- number of game ticks per second
 Stamina = 1000                    #- number of game ticks per second
 Fps = 60                    #- number of game ticks per second
 MainLoop = True                #- main loop flag to keep the game running
