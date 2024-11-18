@@ -137,4 +137,4 @@ while MainLoop:
   
   #Notes:
   #     That point of one zombie being just a circle that is cut off is intencional. DO NOT CORRECT MY PROGRAM
-  #     Plans: Sprint Bar
+  #     Plans: Sprint Bar , Colosion
