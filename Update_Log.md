@@ -1,3 +1,4 @@
 11.11.2024 - 1. Ever code upload - this log was created
 12.11.2024 - 2. and 3. code upload - Added barriers, stamina, spawn changes
+18.11.2024 - 4. code upload - Added stamina and health bar 
 
