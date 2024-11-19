@@ -7,7 +7,7 @@ pygame.init()                        #- initialize the module
 
 #- Activate the graphical window
 WindowWidth = 1200                        #- fixed width and height of the game window
-WindowHeight = 900
+WindowHeight = 1000
 Window = pygame.display.set_mode ([WindowWidth, WindowHeight])    #- activate the window
 pygame.display.set_caption ("Catch game")        #- set the window title
 
@@ -72,13 +72,10 @@ class Player:
     
 
 Player1 = Player(Playerspawnlocationx, Playerspawnlocationy, 4, 10,1000) #- Note: 'Player1' is now created from the 'Player' class
-Player2 = Player(Playerspawnlocationx, Playerspawnlocationy, 4, 20,700) #- Note: 'Player2' is now created from the 'Player' class
+Player2 = Player(Playerspawnlocationx, Playerspawnlocationy, 5, 10,700) #- Note: 'Player2' is now created from the 'Player' class
 
-Zombie1 = Zombies(Zombiespawnlocationx, Zombiespawnlocationy, 5, 20)  #- Note: 'Zombie1' is now created from the 'Zombies' class
+Zombie1 = Zombies(Zombiespawnlocationx, Zombiespawnlocationy, 6, 15)  #- Note: 'Zombie1' is now created from the 'Zombies' class
 Zombie2 = Zombies(Zombiespawnlocationx, Zombiespawnlocationy, 5, 20)  #- Note: 'Zombie2' is now created from the 'Zombies' class
-
-Playersclasses = [Player1,Player2]	
-Zombiesclasses = [Zombie1,Zombie2]	
 
 ##== MAIN GAME LOOP
 while MainLoop:
@@ -110,26 +107,28 @@ while MainLoop:
     if Stamina >= 1000:
         Stamina = 1000
         
-    if ZombieClasses1.ZombieRect2.x >= WindowWidth-ZombieClasses1.size:
-        ZombieClasses1.ZombieRect2.x = WindowWidth-ZombieClasses1.size
-    if ZombieClasses1.ZombieRect2.x <= 0:
+    if ZombieClasses1.ZombieRect2.x >= WindowWidth:
         ZombieClasses1.ZombieRect2.x = 0
-    if ZombieClasses1.ZombieRect2.y >= WindowHeight-ZombieClasses1.size:
-        ZombieClasses1.ZombieRect2.y = WindowHeight-ZombieClasses1.size
-    if ZombieClasses1.ZombieRect2.y <= 0:
-        ZombieClasses1.ZombieRect2.y = 0
+    if ZombieClasses1.ZombieRect2.x <= 0-ZombieClasses1.size:
+        ZombieClasses1.ZombieRect2.x = WindowWidth
+
+    if ZombieClasses1.ZombieRect2.y >= WindowHeight:
+        ZombieClasses1.ZombieRect2.y = 0-ZombieClasses1.size
+    if ZombieClasses1.ZombieRect2.y <= -1-ZombieClasses1.size:
+        ZombieClasses1.ZombieRect2.y = WindowHeight
 
     if Playersclasses1.PlayerRect.colliderect (Zombie1.ZombieRect2):
         Playersclasses1.Health = Playersclasses1.Health - 10
 
-    if Playersclasses1.PlayerRect.x >= WindowWidth-Playersclasses1.size1*2:
-        Playersclasses1.PlayerRect.x = WindowWidth-Playersclasses1.size1*2
-    if Playersclasses1.PlayerRect.x <= 0:
+    if Playersclasses1.PlayerRect.x >= WindowWidth:
         Playersclasses1.PlayerRect.x = 0
-    if Playersclasses1.PlayerRect.y >= WindowHeight-Playersclasses1.size1*2:
-        Playersclasses1.PlayerRect.y = WindowHeight-Playersclasses1.size1*2
-    if Playersclasses1.PlayerRect.y <= 0:
-        Playersclasses1.PlayerRect.y = 0      
+    if Playersclasses1.PlayerRect.x <= 0-Playersclasses1.size1:
+        Playersclasses1.PlayerRect.x = WindowWidth
+
+    if Playersclasses1.PlayerRect.y >= WindowHeight:
+        Playersclasses1.PlayerRect.y = 0-Playersclasses1.size1
+    if Playersclasses1.PlayerRect.y <= -1-Playersclasses1.size1:
+        Playersclasses1.PlayerRect.y = WindowHeight      
 
 
     Window.blit (Playersclasses1.Surface, Playersclasses1.PlayerRect)  #- draw the player on the screen
@@ -173,7 +172,7 @@ while MainLoop:
 
   
       
-  Program(Zombie1,Player2,SprintBarX)
+  Program(Zombie1,Player1,SprintBarX)
 
   #Notes:
   #     That point of one zombie being just a circle that is cut off is intencional. DO NOT CORRECT MY PROGRAM
