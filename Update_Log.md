@@ -3,4 +3,5 @@
 18.11.2024 - 4. code upload - Added stamina and health bar 
 19.11.2024 - 4. code upload - Reworked classes system
 20.11.2024 - 5. code upload - Added abilities , fixed rendering
+25.11.2024 - 6. code upload - Added one way wall , fixed classes
 
