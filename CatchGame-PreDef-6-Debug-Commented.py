@@ -21,7 +21,7 @@ MainLoop = True                #- Main game loop flag, used to keep the game run
 
 #- Initial classes setup
 Zombiespawnlocationx = 1160                   #- Set the initial X position for the zombie spawn
-Zombiespawnlocationy = 860                   #- Set the initial Y position for the zombie spawn
+Zombiespawnlocationy = 800                   #- Set the initial Y position for the zombie spawn
 Playerspawnlocationx = 10                   #- Set the initial X position for the player spawn
 Playerspawnlocationy = 10                   #- Set the initial Y position for the player spawn
 ClassZombie = 1
@@ -86,9 +86,11 @@ class Zombie:
 # Initialize the objects for zombies and players
 Zombie1 = Zombie(Zombiespawnlocationx, Zombiespawnlocationy, 8, 10)  #- Initialize Zombie1
 Zombie2 = Zombie(Zombiespawnlocationx, Zombiespawnlocationy, 7, 15)  #- Initialize Zombie2
+
 Player1 = Players(Playerspawnlocationx, Playerspawnlocationy, 6, 15,700)  #- Initialize Player1
 Player2 = Players(Playerspawnlocationx, Playerspawnlocationy, 5, 20,1000)  #- Initialize Player2
-Wall1 = Wall(400, 300, 500, 100)  #- Initialize Wall1
+
+Wall1 = Wall(400, 300, 500, 300)  #- Initialize Wall1
 
 ##== MAIN GAME LOOP
 while MainLoop:
@@ -133,7 +135,7 @@ while MainLoop:
       if PlayerClasses1.PlayerRect2.x <= 0 - PlayerClasses1.size:
           PlayerClasses1.PlayerRect2.x = WindowWidth
 
-      if PlayerClasses1.PlayerRect2.y >= WindowHeight:
+      if PlayerClasses1.PlayerRect2.y >= WindowHeight-150:
           PlayerClasses1.PlayerRect2.y = 0 - PlayerClasses1.size
       if PlayerClasses1.PlayerRect2.y <= -1 - PlayerClasses1.size:
           PlayerClasses1.PlayerRect2.y = WindowHeight
@@ -143,10 +145,10 @@ while MainLoop:
       if Zombiesclasses1.ZombieRect.x <= 0 - Zombiesclasses1.size1:
           Zombiesclasses1.ZombieRect.x = WindowWidth
 
-      if Zombiesclasses1.ZombieRect.y >= WindowHeight:
+      if Zombiesclasses1.ZombieRect.y >= WindowHeight-150:
           Zombiesclasses1.ZombieRect.y = 0 - Zombiesclasses1.size1
       if Zombiesclasses1.ZombieRect.y <= -1 - Zombiesclasses1.size1:
-          Zombiesclasses1.ZombieRect.y = WindowHeight  
+          Zombiesclasses1.ZombieRect.y = WindowHeight-150  
     else:
       # If no walk-through walls, constrain movement within window boundaries
       if PlayerClasses1.PlayerRect2.x <= 0:
@@ -155,8 +157,8 @@ while MainLoop:
           PlayerClasses1.PlayerRect2.x = WindowWidth - PlayerClasses1.size
       if PlayerClasses1.PlayerRect2.y <= 0:
           PlayerClasses1.PlayerRect2.y = 0
-      if PlayerClasses1.PlayerRect2.y >= WindowHeight - PlayerClasses1.size:
-          PlayerClasses1.PlayerRect2.y = WindowHeight - PlayerClasses1.size
+      if PlayerClasses1.PlayerRect2.y >= WindowHeight -150 - PlayerClasses1.size:
+          PlayerClasses1.PlayerRect2.y = WindowHeight -150 - PlayerClasses1.size
 
       if Zombiesclasses1.ZombieRect.x <= 0:
           Zombiesclasses1.ZombieRect.x = 0
@@ -164,8 +166,8 @@ while MainLoop:
           Zombiesclasses1.ZombieRect.x = WindowWidth - Zombiesclasses1.size1
       if Zombiesclasses1.ZombieRect.y <= 0:
           Zombiesclasses1.ZombieRect.y = 0
-      if Zombiesclasses1.ZombieRect.y >= WindowHeight - Zombiesclasses1.size1:
-          Zombiesclasses1.ZombieRect.y = WindowHeight - Zombiesclasses1.size1
+      if Zombiesclasses1.ZombieRect.y >= WindowHeight -150 - Zombiesclasses1.size1:
+          Zombiesclasses1.ZombieRect.y = WindowHeight -150 - Zombiesclasses1.size1
       
       #Drawing
 
@@ -175,8 +177,13 @@ while MainLoop:
 
       OneWayWall.draw(Window)  #- Draw OneWayWall     
     
-      pygame.draw.rect (Window, [255,0,0], (100,WindowHeight-100,SprintBarX,10))
-      pygame.draw.rect (Window, [0,255,0], (100,WindowHeight-50,PlayerClasses1.Health,10))
+      pygame.draw.rect (Window, [255,155,0], (0,WindowHeight-150,WindowWidth,WindowWidth))  #- Draw the ground
+
+      pygame.draw.rect (Window, [255,0,0], (100,WindowHeight-100,SprintBarX,10)) #- Draw the ability bar
+
+      pygame.draw.rect (Window, [0,255,0], (100,WindowHeight-50,PlayerClasses1.Health,10)) #- Draw the health bar
+
+
 
     #- Control player movement
       Keyboard = pygame.key.get_pressed()	
@@ -216,7 +223,7 @@ while MainLoop:
       if  PlayerClasses1 == Player1:    
             if Keyboard[pygame.K_LSHIFT] and Stamina > 0:                #- if 'Left Shift' key is pressed
                 PlayerClasses1.WalkSpeed   = -30
-                Stamina = Stamina - 75
+                Stamina = Stamina - 30
             else:
                 PlayerClasses1.WalkSpeed = PlayerClasses1.resetspeed
 
