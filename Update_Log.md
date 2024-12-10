@@ -14,4 +14,5 @@
 
 9.12.2024 - 7. code upload - added new ability and upgraded wall
 
+10.12.2024 - 8. code upload - new wall resize thing and new game idea
 
